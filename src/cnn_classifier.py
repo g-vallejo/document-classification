@@ -5,14 +5,12 @@ Gets to 0.89 test accuracy after 2 epochs.
 10s/epoch on Tesla K40 GPU.
 '''
 from __future__ import print_function
-
-from keras.preprocessing import sequence
 from keras.models import Sequential
 from keras.layers import Dense, Dropout, Activation
 from keras.layers import Embedding
 from keras.layers import Conv1D, GlobalMaxPooling1D
 from data_helpers import load_data
-from run_classifiers import this_data_directory, this_results_directory
+from run_classifiers import generate_dirs
 import os
 
 
@@ -106,6 +104,7 @@ if __name__ == '__main__':
     this_batch_size = 32
     this_epochs = 5
     verbose = False
+    this_data_directory, this_results_directory = generate_dirs()
     this_emb_file = this_data_directory + "GoogleNews-vectors-negative300.bin"
     this_emb_set = "w2v"
 

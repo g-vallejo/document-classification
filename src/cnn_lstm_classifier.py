@@ -10,7 +10,7 @@ from keras.layers import Dense, Dropout, Activation
 from keras.layers import Embedding
 from keras.layers import LSTM
 from keras.layers import Conv1D, MaxPooling1D
-from run_classifiers import this_data_directory, this_results_directory
+from run_classifiers import generate_dirs
 from data_helpers import load_data
 import os
 
@@ -107,6 +107,7 @@ if __name__ == '__main__':
     lstm_output_size = 70
 
     # Training
+    this_data_directory, this_results_directory = generate_dirs()
     batch_size = 32
     epochs = 4
     verbose = False
